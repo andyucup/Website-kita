@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Desa Kita</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Gaya Umum */
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #e0e0e0;
+        }
+
+        /* Halaman Login */
+        #login-container {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('usa.jpg') center/cover;
+            color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        #login-container h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        #login-container input[type="text"],
+        #login-container input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        #login-container button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #login-container button:hover {
+            background-color: #45a049;
+        }
+
+        /* Tampilan Halaman Utama (Disembunyikan Awalnya) */
+        #main-content {
+            display: none;
+            width: 100%;
+        }
+
+        /* Header, Navigasi, dan Konten Utama */
+        header {
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('logo.png');
+            background-size: cover;
+            background-position: center;
+            font-weight: 700;
+            animation: fadeIn 1.5s ease;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #4CAF50;
+        }
+
+        .content-section {
+            display: none;
+            padding: 40px;
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .active {
+            display: block;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            nav ul li {
+                margin: 0 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Halaman Login -->
+    <div id="login-container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="login()">Masuk</button>
+    </div>
+
+    <!-- Halaman Utama (Konten) -->
+    <div id="main-content">
+        <!-- Bagian Header -->
+        <header>
+            <h1>Desa Kita</h1>
+        </header>
+
+        <!-- Menu Navigasi -->
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('beranda')">Beranda</a></li>
+                <li><a href="#" onclick="showSection('profil')">Profil Desa</a></li>
+                <li><a href="#" onclick="showSection('berita')">Berita Desa</a></li>
+                <li><a href="#" onclick="showSection('layanan')">Layanan</a></li>
+                <li><a href="#" onclick="showSection('galeri')">Galeri</a></li>
+                <li><a href="#" onclick="showSection('kontak')">Kontak</a></li>
+            </ul>
+        </nav>
+
+        <!-- Konten Utama -->
+        <div id="beranda" class="content-section active">
+            <h2>Selamat Datang di Desa Kita</h2>
+            <p>Desa Kita adalah desa yang makmur dan berdaya saing tinggi...</p>
+        </div>
+
+        <div id="profil" class="content-section">
+            <h2>Profil Desa</h2>
+            <p>Informasi mengenai sejarah dan potensi desa...</p>
+        </div>
+
+        <div id="berita" class="content-section">
+            <h2>Berita Desa</h2>
+            <p>Berbagai berita terbaru tentang kegiatan dan program desa...</p>
+        </div>
+
+        <div id="layanan" class="content-section">
+            <h2>Layanan</h2>
+            <p>Layanan yang disediakan oleh pemerintah desa...</p>
+        </div>
+
+        <div id="galeri" class="content-section">
+            <h2>Galeri</h2>
+            <p>Kumpulan foto-foto kegiatan dan pemandangan desa...</p>
+        </div>
+
+        <div id="kontak" class="content-section">
+            <h2>Kontak Kami</h2>
+            <p>Hubungi kami untuk informasi lebih lanjut...</p>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2023 Desa Kita. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Fungsi untuk login
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'Kaks' && password === 'Sandy') {
+                document.getElementById('login-container').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                document.body.style.backgroundColor = '#e0e0e0';
+            } else {
+                alert('Username atau password salah!');
+            }
+        }
+
+        // Fungsi untuk menampilkan konten
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('.content-section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+            var selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('active');
+        }
+    </script>
+</body>
+</html>
